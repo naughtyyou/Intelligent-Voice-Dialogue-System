@@ -57,7 +57,7 @@ Mac：brew install ffmpeg
 ```bash
 python gradio_page.py
 ```
-启动成功后，终端会显示本地访问地址：http://localhost:7860，用浏览器打开即可使用。
+启动成功后，终端会显示本地访问地址：(http://localhost:7860)，用浏览器打开即可使用。
 ## 使用说明
 ### 开始对话
 1. 点击 “录制” 按钮开始说话，点击“停止”停止录音并提交处理。
