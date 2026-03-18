@@ -36,16 +36,19 @@ pip install -r requirements.txt
 ```
 ### 4. 安装 ffmpeg（可选）
 音频转换功能依赖 ffmpeg，若未安装，程序会使用原始音频格式（可能影响识别效果）。
+
 Windows：下载 ffmpeg 并添加到系统 PATH。
+
 Linux：sudo apt install ffmpeg
+
 Mac：brew install ffmpeg
 
 ## 配置说明
 本项目需要您拥有阿里云相关服务的访问权限，请在运行前配置好密钥。
 ### 获取密钥
 ### 阿里云语音识别（ASR）和语音合成（TTS）
-访问 阿里云智能语音交互控制台，开通服务并创建项目。
-获取项目的 Appkey 以及您的 AccessKey ID 和 AccessKey Secret（需拥有 AliyunNLSSpeechFullAccess 权限）。
+1. 访问 阿里云智能语音交互控制台，开通服务并创建项目。
+2. 获取项目的 Appkey 以及您的 AccessKey ID 和 AccessKey Secret（需拥有 AliyunNLSSpeechFullAccess 权限）。
 ## 阿里百炼大模型（LLM）
 访问 阿里百炼控制台，开通模型服务并获取 API Key。
 可使用 qwen-turbo 等模型。
@@ -62,14 +65,14 @@ python gradio_page.py
 ### 开始对话
 1. 点击 “录制” 按钮开始说话，点击“停止”停止录音并提交处理。
 2. 系统会依次执行语音识别、大模型生成、语音合成，并在界面右侧显示回复文本、播放合成语音，同时左侧对话历史会更新。
-###清空对话
+### 清空对话
 点击 “清空对话” 按钮可重置聊天记录。
 ### 音频时长限制
 系统会自动检测录音时长，若超过 30 秒会提示重新录制。
 ### 状态提示
 界面底部的状态栏会显示 “处理中...”、“准备就绪” 或错误信息。
 
-##项目结构
+## 项目结构
 ```text
 ├── gradio_page.py          # Gradio 前端界面及主逻辑
 ├── unified_processor.py    # 后端核心处理模块（ASR + LLM + TTS）
@@ -85,13 +88,17 @@ python gradio_page.py
 
 ## 常见问题
 **Q：录音后没有回复或长时间无响应？**
+
 A：可能是网络问题或密钥配置错误，请检查终端输出的详细日志，确认 ASR、LLM、TTS 的请求是否成功。
 
 **Q：合成的语音无法播放？**
-A：请检查浏览器是否允许自动播放音频，部分浏览器需要用户与页面交互后才能播放。可在浏览器设置中开启自动播放权限。
+ 
+ A：请检查浏览器是否允许自动播放音频，部分浏览器需要用户与页面交互后才能播放。可在浏览器设置中开启自动播放权限。
 
 **Q：如何修改使用的模型或音色？**
-A：在 SAMPLE_CONFIG 中修改 llm.model 和 tts.voice 字段，具体可选值请参考阿里云官方文档。
+ 
+ A：在 SAMPLE_CONFIG 中修改 llm.model 和 tts.voice 字段，具体可选值请参考阿里云官方文档。
 
 **Q：出现 “ASR Token 获取失败” 错误？**
-A：请检查 AccessKey ID/Secret 是否正确，并确保账户已开通阿里云智能语音交互服务。
+ 
+ A：请检查 AccessKey ID/Secret 是否正确，并确保账户已开通阿里云智能语音交互服务。
