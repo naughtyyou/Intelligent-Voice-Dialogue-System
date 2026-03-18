@@ -1,6 +1,6 @@
 # 智能语音对话助手
 
-本项目是一个来源于小智xiaozhi-esp32-server（https://github.com/xinnan-tech/xiaozhi-esp32-server）的基于阿里云服务的智能语音对话助手，实现了从语音输入到语音输出的全流程：
+本项目是一个来源于[小智xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server)的基于阿里云服务的智能语音对话助手，实现了从语音输入到语音输出的全流程：
 > 用户录音 → 语音识别（ASR）→ 大模型生成回复（LLM）→ 语音合成（TTS）→ 播放回复音频
 
 前端使用 Gradio 构建简洁的 Web 界面，后端集成阿里云语音识别、阿里百炼大模型和阿里云语音合成服务，支持实时对话。
@@ -23,17 +23,17 @@
 ```bash
 git clone https://github.com/naughtyyou/Intelligent-Voice-Dialogue-System.git
 cd <project-folder>
-
+```
 ### 2. 创建并激活虚拟环境（推荐）
 ```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
-
+```
 ### 3. 安装依赖包
 ```bash
 pip install -r requirements.txt
-
+```
 ### 4. 安装 ffmpeg（可选）
 音频转换功能依赖 ffmpeg，若未安装，程序会使用原始音频格式（可能影响识别效果）。
 Windows：下载 ffmpeg 并添加到系统 PATH。
@@ -56,7 +56,7 @@ Mac：brew install ffmpeg
 在项目目录下执行：
 ```bash
 python gradio_page.py
-
+```
 启动成功后，终端会显示本地访问地址：http://localhost:7860，用浏览器打开即可使用。
 ## 使用说明
 ### 开始对话
@@ -75,7 +75,7 @@ python gradio_page.py
 ├── unified_processor.py    # 后端核心处理模块（ASR + LLM + TTS）
 ├── requirements.txt        # 依赖清单（可选）
 └── README.md               # 本文件
-
+```
 ## 注意事项
 1. 网络状况会影响响应速度，请确保服务器能正常访问阿里云 API。
 2. 录音环境尽量安静，以提高语音识别准确率。
